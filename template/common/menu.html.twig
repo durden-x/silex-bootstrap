@@ -1,0 +1,15 @@
+<nav>
+  <ul>
+    <li{% if menu == 'homepage' %} class="active"{% endif %}>
+      <span>
+        <a href="{{ path('homepage') }}"{% if menu == 'homepage' %} class="active"{% endif %}>Menu</a>
+      </span>
+    </li>
+
+    <li{% if menu == 'parametres' %} class="active"{% endif %}>
+      <span>
+        <a href="{{ path('parametres') }}"{% if menu == 'parametres' %} class="active"{% endif %}>Paramètres</a>
+      </span>
+    </li>
+  </ul>
+</nav>

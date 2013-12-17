@@ -1,0 +1,54 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+  <head>
+    <title>OPTIC - {% block metaTitle %}{% endblock %}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    {% block stylesheets %}
+    <link href="/{{ opticRoutePrefixe }}/libraries/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/{{ opticRoutePrefixe }}/css/global.css" rel="stylesheet">
+    {% endblock %}
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+  	<header>
+  		<div id="breadcrumb">
+  			Vous êtes ici :
+        {% block breadcrumb %}{% endblock %}
+  		</div>
+
+  		<div id="header-container">
+	    	
+  		</div>
+
+      {% block menu %}{% include 'common/menu.html.twig' with {'menu': 'homepage'} %}{% endblock %}
+  	</header>
+	
+  	<div id="content">
+      <div class="main">
+      {% if app.session.getFlashBag.peek('message') %}
+      <div class="alert alert-info alert-dismissable">
+        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+        <ul class="error_list">
+    		{% for message in app.session.getFlashBag.get('message') %}
+    		    <li>{{ message }}</li>
+    		{% endfor %}
+        </ul>
+      </div>
+      {% endif %}
+
+  		{% block content %}{% endblock %}
+    </div>
+  	</div>
+
+  	<footer>
+  	</footer>
+    
+    {% block javascripts %}    
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <script src="/{{ opticRoutePrefixe }}/libraries/bootstrap/dist/js/bootstrap.min.js"></script>
+    {% endblock %}
+  </body>
+</html>

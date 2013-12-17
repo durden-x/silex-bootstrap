@@ -1,0 +1,15 @@
+{% set classForm = 'form-inline' %}
+
+{% extends "common/form.html.twig" %}
+
+
+{% block metaTitle %}index{% endblock %}
+{% block title %}index{% endblock %}
+
+{% block menu %}
+	{% include 'common/menu.html.twig' with {'menu': 'homepage'} %}
+{% endblock %}
+
+{% block breadcrumb %}
+Accueil
+{% endblock %}

@@ -1,0 +1,20 @@
+{% extends "common/layout.html.twig" %}
+
+{% block metaTitle %}Page introuvable{% endblock %}
+
+{% block breadcrumb %}
+<a href="{{ path('homepage') }}" title="Aller vers : Accueil">Accueil</a> > page inconnue
+{% endblock %}
+
+{% block content %}
+	
+	<h3>Oups cette page est inconnue</h3>
+
+	Merci de contacter l'administrateur de l'application en indiquant l'erreur ci dessous :
+	
+	<pre class="errors">
+		<code>
+			{{ message }}
+		</code>
+	</pre>
+{% endblock %}
